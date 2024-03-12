@@ -2,13 +2,27 @@
 # ask the user for an operation to perform
 # perform the operaation on the two numbers
 # output the results
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
 
 def prompt(message)
   puts(message)
 end
 
 def valid_number?(number)
-  number.to_i = 0
+  def integer?(input)
+    input.to_i.to_s == input
+  end
+  
+  def float?(input)
+    input.to_f.to_s == input
+  end
+  
+  def number?(input)
+    integer?(input) || float?(input)
+  end
+  
+  number?(number)
 end
 
 def operation_to_message(op)
@@ -24,13 +38,13 @@ def operation_to_message(op)
   end
 end
 
-prompt("Welcome to Calculator! Enter your name:")
+prompt(MESSAGES['welcome'])
 
 name = ''
 loop do
   name = gets.chomp
   if name.empty?
-    prompt("Make sure to use a valid name.")
+    prompt(MESSAGES['valid_name'])
   else
     break
   end
@@ -41,23 +55,23 @@ prompt("Hey #{name}")
 loop do
   number1 = ''
   loop do
-    prompt("What's the first number?")
+    prompt(MESSAGES['number1'])
     number1 = gets.chomp
     if valid_number?(number1)
       break
     else
-      prompt("Not a valid number!")
+      prompt(MESSAGES['invalid'])
     end
   end
 
   number2 = ''
   loop do
-    prompt("What's the second number?")
+    prompt(MESSAGES['number2'])
     number2 = gets.chomp
     if valid_number?(number2)
       break
     else
-      prompt("Not a valid number!")
+      prompt(MESSAGES['invalid'])
     end
   end
 
@@ -77,7 +91,7 @@ loop do
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt("You must choose 1, 2, 3, or 4")
+      prompt(MESSAGES['choose'])
     end
   end
   prompt("#{operation_to_message(operator)} the two numbers...")
@@ -93,9 +107,10 @@ loop do
            end
 
   prompt("The result is #{result}")
-  prompt("Do you want to perform another calculation? (Y to calculate again)")
+  prompt(MESSAGES['again'])
   answer = gets.chomp
   break unless answer.downcase().start_with?('y')
 end
 
-prompt("Thank you for using this calculator! Goodbye!")
+prompt(MESSAGES['end'])
+
