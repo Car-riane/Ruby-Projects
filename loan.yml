@@ -1,0 +1,8 @@
+welcome: "Welcome to Loan Calculator!" 
+amount: "Please Enter the principal:"
+apr: "Please Enter the annual percentage rate:"
+time: "Please Enter the amount of years:"
+interest: "Please Enter the monthly interest rate:"
+time_months: "Please enter the amount of time in months"
+payment: "The monthly payment amount is:"
+
