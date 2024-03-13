@@ -13,15 +13,15 @@ def valid_number?(number)
   def integer?(input)
     input.to_i.to_s == input
   end
-  
+
   def float?(input)
     input.to_f.to_s == input
   end
-  
+
   def number?(input)
     integer?(input) || float?(input)
   end
-  
+
   number?(number)
 end
 
@@ -113,4 +113,3 @@ loop do
 end
 
 prompt(MESSAGES['end'])
-
