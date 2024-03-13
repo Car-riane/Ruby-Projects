@@ -1,0 +1,7 @@
+ TURNS = {
+ 'rock' => %w(scissors lizard),
+  'paper' => %w(rock spock),
+  'scissors' => %w(paper lizard),
+  'lizard' => %w(spock paper),
+  'spock' => %w(rock scissors)
+ }
