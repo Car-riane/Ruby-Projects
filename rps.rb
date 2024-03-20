@@ -69,10 +69,10 @@ loop do
   break unless answer.downcase.start_with?('y')
 end
 
-if (wins == 3)
+if wins == 3
   prompt("You are the winner!")
-else  
+else
   prompt("The Computer is the winner")
-end 
+end
 
 prompt("Thank you for playing. Goodbye!")
