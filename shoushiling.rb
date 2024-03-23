@@ -10,11 +10,11 @@ choices = {
 }
 
 MOVES = {
-    'rock' => ['scissors', 'lizard'],
-    'paper' => ['spock', 'rock'],
-    'scissors' => ['paper', 'lizard'],
-    'lizard' => ['spock', 'paper'],
-    'spock' => ['scissors', 'rock']
+  'rock' => ['scissors', 'lizard'],
+  'paper' => ['spock', 'rock'],
+  'scissors' => ['paper', 'lizard'],
+  'lizard' => ['spock', 'paper'],
+  'spock' => ['scissors', 'rock']
 }
 
 def prompt(message)
@@ -23,9 +23,8 @@ def prompt(message)
 end
 
 def win?(first, second)
-  MOVES[first].include?(second) 
+  MOVES[first].include?(second)
 end
-
 
 def display_results(player, computer)
   if win?(player, computer)
@@ -42,12 +41,15 @@ computer_win = 0
 round = 0
 
 loop do
+  prompt(MESSAGES['welcome'])
   player_choice = ''
+
   loop do
     prompt(MESSAGES['move'])
     choice = gets.chomp
+    # Convert key to value if necessary
     if choices.key?(choice) || choices.value?(choice)
-      player_choice = choices.key?(choice) ? choices[choice] : choice  # Convert key to value if necessary
+      player_choice = choices.key?(choice) ? choices[choice] : choice
       break
     else
       prompt("That is an invalid choice.")
@@ -65,7 +67,7 @@ loop do
     player_win += 1
   elsif win?(computer_choice, player_choice)
     computer_win += 1
-  else 
+  else
     computer_win += 1
     player_win += 1
   end

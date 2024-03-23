@@ -8,8 +8,8 @@ def prompt(message)
 end
 
 def valid_number?(num)
-  (num.to_f.to_s == num) && num.to_f > 0 || 
-  (num.to_i.to_s == num) && num.to_i > 0
+  ((num.to_f.to_s == num) && num.to_f > 0) ||
+    ((num.to_i.to_s == num) && num.to_i > 0)
 end
 
 def monthly_payment_formula(amount, rate, years)
