@@ -56,7 +56,8 @@ loop do
 
   computer_choice = choices.values.sample
 
-  prompt("You chose: #{player_choice}; Computer chose: #{computer_choice}")
+  prompt("You chose: #{player_choice}")
+  prompt("Computer chose: #{computer_choice}")
 
   display_results(player_choice, computer_choice)
 
@@ -64,6 +65,9 @@ loop do
     player_win += 1
   elsif win?(computer_choice, player_choice)
     computer_win += 1
+  else 
+    computer_win += 1
+    player_win += 1
   end
 
   prompt("You have #{player_win} and Computer has #{computer_win}.")
